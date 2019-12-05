@@ -1,11 +1,13 @@
 import React from "react";
 import Auxi from "./../../hoc/Auxi";
 
+import classes from "./Layout.css";
+
 const layout = props => {
     return (
         <Auxi>
             <div>Toolbar, Sidebar, Backdrop</div>
-            <main>props.children</main>
+            <main className={classes.Content}>{props.children}</main>
         </Auxi>
     );
 };
