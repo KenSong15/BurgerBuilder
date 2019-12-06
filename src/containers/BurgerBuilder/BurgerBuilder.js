@@ -81,6 +81,10 @@ class BurgerBuilder extends Component {
         this.setState({purchasing: false});
     };
 
+    purchaseContinueHandler = () => {
+        alert("You continue!");
+    };
+
     render() {
         const disableInfo = {
             ...this.state.ingredients
@@ -95,7 +99,12 @@ class BurgerBuilder extends Component {
                     show={this.state.purchasing}
                     modalClose={this.purchaseCancleHandler}
                 >
-                    <OrderSummary ingredients={this.state.ingredients} />
+                    <OrderSummary
+                        ingredients={this.state.ingredients}
+                        prices={this.state.totalPrice}
+                        purchaseCancelled={this.purchaseCancleHandler}
+                        purchaseContinued={this.purchaseContinueHandler}
+                    />
                 </Modal>
                 <Burger ingredients={this.state.ingredients} />
                 <BuildControls
